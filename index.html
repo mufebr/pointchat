@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PointTalk — Auto Match</title>
-
     <style>
          :root {
             --accent: #104bff;
@@ -13,8 +11,7 @@
             --danger: #ff4444;
             --muted: #6b7280;
             font-family: Arial, Helvetica, sans-serif;
-        }
-        
+        }     
         html,
         body {
             width: 100vw;
@@ -26,8 +23,7 @@
             display: flex;
             flex-direction: column;
         }
-        /* TELA DE CARREGAMENTO */
-        
+        /* TELA DE CARREGAMENTO */      
         #loading-screen {
             position: fixed;
             inset: 0;
@@ -46,8 +42,7 @@
             align-items: center;
             gap: 12px;
             color: #000000;
-        }
-        
+        }     
         .loader-spinner {
             width: 40px;
             height: 40px;
@@ -55,14 +50,12 @@
             border: 4px solid rgba(0, 0, 0, 0.15);
             border-top-color: #000000;
             animation: spin 0.9s linear infinite;
-        }
-        
+        }       
         .loader-text {
             font-size: 18px;
             font-weight: 600;
         }
         /* "from PointChat Inc" lá embaixo */
-        
         .loader-footer {
             position: absolute;
             bottom: 32px;
@@ -73,29 +66,25 @@
             flex-direction: column;
             align-items: center;
             gap: 4px;
-        }
-        
+        }       
         .loader-from {
             font-size: 12px;
             color: #7b7f8a;
             /* cinzinha igual "from" do Meta */
-        }
-        
+        } 
         .loader-brand {
             font-size: 16px;
             font-weight: 600;
             color: #2f00ff;
             /* escolhe a cor da sua marca */
         }
-        /* animação do círculo */
-        
+        /* animação do círculo */       
         @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
         }
-        /* LOGIN */
-        
+        /* LOGIN */    
         #login-screen {
             position: fixed;
             inset: 0;
@@ -105,8 +94,7 @@
             justify-content: center;
             z-index: 9999;
             padding: 20px;
-        }
-        
+        }      
         #login-box {
             width: 100%;
             max-width: 360px;
@@ -115,8 +103,7 @@
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
             text-align: center;
-        }
-        
+        }       
         #login-box input {
             width: 100%;
             padding: 12px;
@@ -124,8 +111,7 @@
             border-radius: 8px;
             margin-top: 10px;
             font-size: 16px;
-        }
-        
+        }       
         #login-box button {
             width: 100%;
             padding: 12px;
@@ -136,8 +122,7 @@
             font-size: 17px;
             margin-top: 12px;
             cursor: pointer;
-        }
-        
+        }        
         #error-message {
             color: var(--danger);
             font-size: 14px;
@@ -145,7 +130,6 @@
             display: none;
         }
         /* HEADER */
-        
         header.desktop-header,
         header.mobile-header {
             position: fixed;
@@ -157,7 +141,6 @@
             font-weight: 700;
             z-index: 100;
         }
-        
         header.desktop-header {
             top: 0;
             height: 64px;
@@ -167,7 +150,6 @@
             font-size: 20px;
             display: none;
         }
-        
         header.mobile-header {
             top: 0;
             height: 64px;
@@ -177,7 +159,6 @@
             display: none;
         }
         /* CHAT */
-        
         #chat-container {
             display: none;
             height: 100%;
@@ -186,24 +167,20 @@
             display: flex;
             flex-direction: column;
         }
-        
         #badCounterWrapper {
             color: white;
             text-align: center;
             font-size: 13px;
             padding-top: 4px;
         }
-        
         #badCounter {
             display: none;
         }
-        
         #muteTimer {
             font-size: 12px;
             margin-top: 2px;
             color: #ffe9e9;
         }
-        
         .chat-top-bar {
             display: flex;
             align-items: center;
@@ -212,11 +189,9 @@
             font-size: 14px;
             font-weight: bold;
         }
-        
         .room-name {
             font-weight: bold;
         }
-        
         .chat-box {
             background: white;
             border-radius: 10px;
@@ -227,7 +202,6 @@
             flex-direction: column;
             margin: 4px 12px 0 12px;
         }
-        
         .msg-me {
             background: rgb(8, 8, 240);
             color: white;
@@ -237,7 +211,6 @@
             max-width: 78%;
             align-self: flex-end;
         }
-        
         .msg-them {
             background: #eef2f7;
             color: #2f00ff;
@@ -247,12 +220,10 @@
             max-width: 78%;
             align-self: flex-start;
         }
-        
         .msg-blocked {
             opacity: 0.6;
             text-decoration: line-through;
         }
-        
         .system {
             background: #ffe0e0;
             padding: 8px;
@@ -260,13 +231,11 @@
             margin: 6px 0;
             font-style: italic;
         }
-        
         .input-area {
             background: white;
             padding: 4px 12px 10px 12px;
             border-top: 1px solid #ddd;
         }
-        
         #typingIndicator {
             font-size: 11px;
             color: #555;
@@ -277,7 +246,6 @@
             padding-left: 4px;
             margin-bottom: 2px;
         }
-        
         .input-fixed {
             display: flex;
             gap: 8px;
@@ -286,30 +254,25 @@
             border-top: 1px solid #ddd;
             align-items: center;
         }
-        
         .input-fixed input {
             flex: 1;
             padding: 12px;
             border: 1px solid #272727;
             border-radius: 10px;
         }
-        
         .input-fixed button {
             padding: 12px;
             border-radius: 10px;
             border: 0;
             cursor: pointer;
         }
-        
         #chatSend {
             background: #1861ff;
             color: white;
         }
-        
         #emojiBtn {
             background: #ffcc00;
         }
-        
         #clearChatBtn {
             background: #3a0dff;
             border: none;
@@ -319,12 +282,10 @@
             align-items: center;
             justify-content: center;
         }
-        
         #clearChatBtn svg {
             fill: #ffffff;
         }
         /* EMOJIS */
-        
         #emojiPicker {
             display: none;
             background: white;
@@ -339,14 +300,12 @@
             flex-wrap: wrap;
             z-index: 1000;
         }
-        
         #emojiPicker .emoji {
             cursor: pointer;
             font-size: 20px;
             padding: 4px;
         }
         /* ALERT PANEL */
-        
         #alertPanel {
             display: none;
             position: fixed;
@@ -356,7 +315,6 @@
             justify-content: center;
             align-items: center;
         }
-        
         #alertPanel>div {
             background: white;
             padding: 20px;
@@ -364,12 +322,10 @@
             max-width: 300px;
             text-align: center;
         }
-        
         #alertPanel p {
             font-size: 16px;
             margin-bottom: 20px;
         }
-        
         #alertPanel button {
             padding: 10px 20px;
             border: none;
@@ -380,7 +336,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- TELA DE CARREGAMENTO -->
     <div id="loading-screen">
@@ -395,7 +350,6 @@
             <span class="loader-brand">PointChat Inc</span>
         </div>
     </div>
-
     <!-- LOGIN -->
     <div id="login-screen">
         <div id="login-box">
@@ -406,10 +360,8 @@
             <button id="loginBtn">Entrar</button>
         </div>
     </div>
-
     <header class="desktop-header">Bem vindo ao chat</header>
     <header class="mobile-header">Bem vindo ao chat</header>
-
     <!-- CHAT -->
     <div id="chat-container">
         <div id="badCounterWrapper">
